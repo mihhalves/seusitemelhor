@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://seusitemelhor.com.br">
 <!--
    ______                            __
   / ____/___  ____ ___  ____  __  __/ /____  _____
@@ -27,11 +29,14 @@
 <meta property="og:type" content="website">
 
 <!-- Fonts -->
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fontshare.com" crossorigin>
+
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&f[]=general-sans@400,500,600,700&display=swap">
 
 <!-- Styles -->
-<link rel="stylesheet" href="./base.css">
-<link rel="stylesheet" href="./style.css">
+<link rel="preload" href="./style.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="./style.css"></noscript>
 
 <!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a2b4a'/><text x='16' y='23' font-size='18' fill='%23d4a04a' text-anchor='middle' font-weight='bold' font-family='sans-serif'>S</text></svg>">
@@ -553,6 +558,21 @@ ${mensagem}`;
 
   window.open(url, "_blank");
 });
+</script>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LocalBusiness",
+ "name": "seusitemelhor",
+ "url": "https://seusitemelhor.com.br",
+ "telephone": "+5511957981540",
+ "address": {
+   "@type": "PostalAddress",
+   "addressLocality": "São Paulo",
+   "addressCountry": "BR"
+ }
+}
 </script>
 
 </body>
