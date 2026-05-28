@@ -108,12 +108,22 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+            // Don't unobserve hero elements - they should stay visible
+            if (!entry.target.closest('.hero')) {
+              observer.unobserve(entry.target);
+            }
           }
         });
       }, observerOptions);
 
-      revealElements.forEach(el => observer.observe(el));
+      revealElements.forEach(el => {
+        // Make hero elements visible immediately
+        if (el.closest('.hero')) {
+          el.classList.add('visible');
+        } else {
+          observer.observe(el);
+        }
+      });
     }
   } else {
     // If scroll-driven animations are supported, make reveal elements visible
