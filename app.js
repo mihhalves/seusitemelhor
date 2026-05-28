@@ -94,7 +94,8 @@
   const supportsScrollTimeline = CSS.supports('animation-timeline', 'scroll()');
 
   if (!supportsScrollTimeline) {
-    const revealElements = document.querySelectorAll('.js-reveal');
+    // Observe both .js-reveal and .reveal-on-scroll elements
+    const revealElements = document.querySelectorAll('.js-reveal, .reveal-on-scroll');
 
     if (revealElements.length > 0) {
       const observerOptions = {
@@ -115,9 +116,10 @@
       revealElements.forEach(el => observer.observe(el));
     }
   } else {
-    // If scroll-driven animations are supported, make js-reveal elements visible
-    document.querySelectorAll('.js-reveal').forEach(el => {
+    // If scroll-driven animations are supported, make reveal elements visible
+    document.querySelectorAll('.js-reveal, .reveal-on-scroll').forEach(el => {
       el.style.opacity = '1';
+      el.style.transform = 'none';
     });
   }
 
